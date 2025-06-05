@@ -1,0 +1,68 @@
+!
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="rps.css">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <h1>Rock Paper Scissors</h1>
+
+    <h2>Play a Round</h2>
+
+    <div class="scorecard">
+        <h3>ScoreCard!</h3>
+
+        <div class="score">
+            <div class="humanScoreCard">
+                <p>Human</p>
+                <p class="humanScore">0</p>
+            </div>
+            <div class="computerScoreCard">
+                <p>Computer</p>
+                <p class="computerScore">0</p>
+            </div>
+                
+            
+
+        </div>
+    </div>
+    <div class="options">
+        <div class="optionBtnRock" data-value="rock">
+            <img src="icons/asteroid.png" class="img" alt="Rock"/>
+        </div>
+        
+        <div class="optionBtnPaper" data-value="rock">
+            <img src="icons/paper.png" class="img" alt="Paper"/>
+        </div>
+
+        <div class="optionBtnScissors" data-value="scissors">
+            <img src="icons/scissor.png" class="img" alt="Scissors"/>
+        </div>
+    
+        
+    </div>
+
+    <div class="resultsDiv">
+        <p class="resultOfRound"></p>
+    </div>
+
+    <script src="functions.js" async defer></script>
+
+</body>
+
+</html>

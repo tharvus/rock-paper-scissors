@@ -1,0 +1,35 @@
+body {
+    background-color: fffec1;
+}
+
+body > h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+.scorecard > .score {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.options > * {
+    background-color:blanchedalmond;
+    border: 1px;
+    font-size: 50px;
+}
+
+.options> div:hover {
+    background-color: salmon;
+}
+
