@@ -16,16 +16,10 @@
 </head>
 
 <body>
-    <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
 
     <h1>Rock Paper Scissors</h1>
 
-    <h2>Play a Round</h2>
-
     <div class="scorecard">
-        <h3>ScoreCard!</h3>
 
         <div class="score">
             <div class="humanScoreCard">
@@ -36,28 +30,27 @@
                 <p>Computer</p>
                 <p class="computerScore">0</p>
             </div>
-                
-            
-
         </div>
     </div>
-    <div class="options">
-        <div class="optionBtnRock" data-value="rock">
-            <img src="icons/asteroid.png" class="img" alt="Rock"/>
-        </div>
-        
-        <div class="optionBtnPaper" data-value="rock">
-            <img src="icons/paper.png" class="img" alt="Paper"/>
-        </div>
+    <div class="optionsContainer">
+        <div class="options">
+            <div class="optionBtnRock" data-value="rock">
+                <img src="icons/asteroid.png" class="img" alt="Rock" />
+            </div>
 
-        <div class="optionBtnScissors" data-value="scissors">
-            <img src="icons/scissor.png" class="img" alt="Scissors"/>
+            <div class="optionBtnPaper" data-value="paper">
+                <img src="icons/paper.png" class="img" alt="Paper" />
+            </div>
+
+            <div class="optionBtnScissors" data-value="scissors">
+                <img src="icons/scissor.png" class="img" alt="Scissors" />
+            </div>
+
         </div>
-    
-        
     </div>
 
     <div class="resultsDiv">
+        <p id="roundNo">Round 1</p>
         <p class="resultOfRound"></p>
     </div>
 

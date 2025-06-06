@@ -1,7 +1,8 @@
 
 let humanScore = 0;
 let computerScore = 0;
-
+let roundNo = 1;
+const MAX_SCORE = 5;
 const getComputerChoice = () => {
     /**
      * Returns a choice between rock, paper and scissors from the computer. 
@@ -14,9 +15,9 @@ const getComputerChoice = () => {
 
 const updateMsg = (newMsg) => {
     // get element
-    const divNode = document.querySelector("div.resultsDiv");
+
     const msgNode = document.querySelector("div.resultsDiv .resultOfRound");
-    console.log(msgNode.textContent);
+    console.log(newMsg);
 
     msgNode.textContent = newMsg;
 
@@ -29,33 +30,51 @@ const updateScore = (recipient) => {
 
     const humanScoreNode = document.querySelector(".humanScore");
     const computerNodeScore = document.querySelector(".computerScore");
+    const roundNoNode = document.querySelector("#roundNo");
     if (recipient === "human") {
         humanScore += 1;
+        roundNo += 1;
         humanScoreNode.textContent = humanScore;
+
     } else {
         // update score for computer
         computerScore += 1;
+        roundNo += 1;
         computerNodeScore.textContent = computerScore;
     }
 
-    if (humanScore === 5) {
-        // show some message
-        alert("You win this game!!");
-        // reset variables
-        humanScoreNode.textContent = 0;
-        computerNodeScore.textContent = 0;
-        
-        
-    } else if (computerScore === 5) {
-        // show some message
-        alert("You lose this game!!");
-        humanScoreNode.textContent = 0;
-        computerNodeScore.textContent = 0;
-        humanScore = 0;
-        computerScore = 0;
-    }
-    
+    if (humanScore === MAX_SCORE) {
 
+        // show some message
+        // updating the node takes time so add this to the callback queue
+        setTimeout(() => {
+            alert("You win this game!!");
+            humanScoreNode.textContent = 0;
+            computerNodeScore.textContent = 0;
+            roundNoNode.textContent = "Round 1";
+            roundNo = 1;
+            humanScore = 0;
+            computerScore = 0;
+            updateMsg("")
+        }, 100)
+
+    } else if (computerScore === MAX_SCORE) {
+        // show some message
+
+        setTimeout(() => {
+            alert("You lose this game!!");
+            humanScoreNode.textContent = 0;
+            computerNodeScore.textContent = 0;
+            roundNoNode.textContent = "Round 1";
+            roundNo = 1;
+            humanScore = 0;
+            computerScore = 0;
+            updateMsg("");
+        }, 100)
+
+    }
+
+    roundNoNode.textContent = `Round ${roundNo}`;
     return;
 }
 
@@ -67,26 +86,31 @@ const playRound = (e) => {
     // console.log(e.target.value);
     const humanChoice = nodeToCheck.dataset.value;
     const computerChoice = getComputerChoice();
+    const roundNoNode = document.querySelector("#roundNo");
     let msg = "";
-
+    console.log(typeof humanChoice);
+    console.log(typeof computerChoice);
     if (humanChoice === computerChoice) {
         msg = "No one won! Its a tie!!";
+        roundNo += 1
+        roundNoNode.textContent = `Round ${roundNo}`;
         updateMsg(msg);
         return;
     }
     console.log(`Human's choice: ${humanChoice}`);
     console.log(`Computer's choice: ${computerChoice}`);
+
     if (humanChoice === "rock" && computerChoice === "scissors" || humanChoice === "scissors" && computerChoice === "paper" || humanChoice === "paper" && computerChoice === "rock") {
         msg = "You win! You get 1 point!";
-        
-        updateScore("human");
         updateMsg(msg);
-        
+        updateScore("human");
+
     } else {
         // only update score for computer
         msg = "You lose! Computer gets 1 point!";
-        updateScore("computer");
         updateMsg(msg);
+        updateScore("computer");
+
     }
 
     return;
